@@ -3,7 +3,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mailer = require("nodemailer");
-// var cors = require('cors');
+var cors = require('cors');
 
 var app = express();
 
@@ -11,12 +11,13 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 
 app.post("/", function(req, res) {
 
-  // if (!req.body.id || req.body.id !== 250011) {
-  //   res.send("error: don't have id");
-  // }
+  if (!req.body.id || req.body.id !== 250011) {
+    res.send("error: don't have id");
+  }
 
 
   var html =
