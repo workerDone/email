@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.post("/", function(req, res) {
-
+console.log(req)
   if (!req.body.id || req.body.id !== 250011) {
     res.send("error: don't have id");
   }
@@ -45,8 +45,8 @@ app.post("/", function(req, res) {
   });
 
   var mail = {
-    from: " 'Message' <chmutkola@gmail.com>",
-    to: "chmutkola@gmail.com",
+    from: " 'Message' <interagrokiev@gmail.com>",
+    to: "interagrokiev@gmail.com",
     subject: "Send Email www.interagrokiev",
     html: html
   };
