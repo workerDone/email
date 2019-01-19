@@ -54,17 +54,15 @@ console.log(req)
   try {
     smtpTransport.sendMail(mail, function(error, response) {
       if (error) {
-        console.log(error, "111sdfsd");
-        res.send("error" + error);
+        res.send({errorMail: error});
       } else {
-        console.log("Message sent: " + response.message);
-        res.send("ok: message sent");
+        res.send({ messsage: "ok: message sent" });
       }
 
       smtpTransport.close();
     });
   } catch (err) {
-    res.send(err);
+    res.send({errCatch: err});
   }
 });
 module.exports = app;
